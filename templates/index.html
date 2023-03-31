@@ -13,5 +13,19 @@
         <br>
         <button class="botao" type="submit">Enviar</button>
     </form>
+    <section class="imagens">
+        {% for image in imagens %}
+        <img src="{{image}}" alt="Poster do filme">
+        {% endfor %}    
+    </section>
+
+
+    <!-- Esse script serve para ao recarregar a imagem o servidor voltar para a rota inicial "/" -->
+    <script>
+    if (performance.navigation.type == 1) {
+       window.location.replace('/');
+    }
+    </script>
+      
 </body>
 </html>
