@@ -5,6 +5,7 @@ body {
 
 form {
   margin: 0 auto;
+  margin-bottom: 30px;
   max-width: 500px;
   padding: 20px;
   background-color: #fff;
@@ -46,4 +47,18 @@ input:hover{
 
 img {
   width: 50px;
+}
+
+.imagens{
+  margin: 0 auto;
+  max-width: 90% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.imagens > img{
+  width: 200px;
+  height: 300px;
 }
