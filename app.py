@@ -11,12 +11,15 @@ def index():
     return render_template("index.html")
 
 
+#Ao enviar o formulario ele redireciona para o /filmes passando como parametro
+# o Filme digitado pelo usuario
 @app.route('/busca', methods=['POST', 'GET'])
 def busca():
     nome_do_filme = request.form['filme']
     return redirect(f'/filmes/{nome_do_filme}')
 
 
+#Aqui é onde acessa a Api e coleta as imagens, e envia para a pagina
 @app.route('/filmes/<nome_do_filme>')
 def filme(nome_do_filme):
     imagens = []
