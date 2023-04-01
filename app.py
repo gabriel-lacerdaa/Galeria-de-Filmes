@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__, static_folder='static')
 
-api_key = 'c99099d0'
+api_key = 'aec5022933c801e70135b0874cc9bf39'
 
 
 @app.route('/', methods=['GET'])
@@ -23,13 +23,13 @@ def busca():
 @app.route('/filmes/<nome_do_filme>')
 def filme(nome_do_filme):
     imagens = []
-    url = f'https://www.omdbapi.com/?apikey={api_key}&s={nome_do_filme}&type=movie'
+    url = f'https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={nome_do_filme}'
     response = requests.get(url)
     dicionario = response.json()
-    if 'Error' in dicionario.keys():
-        return '<h1>Filme não encontrado</h1>'
-    for filme in dicionario['Search'][0:10]:    
-        imagens.append(filme["Poster"])
+    if dicionario["total_results"] == 0:
+        return render_template("index.html", texto_nao_encontrado="Filme não encontrado" )
+    for filme in dicionario['results'][0:15]:    
+        imagens.append('https://image.tmdb.org/t/p/w500' + filme["poster_path"])
     return render_template("index.html", imagens=imagens)
 
 
