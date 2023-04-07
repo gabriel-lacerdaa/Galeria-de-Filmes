@@ -16,12 +16,8 @@
 
     <h1 style="text-align: center">{{texto_nao_encontrado}}</h1>
 
-    <section class="imagens">
-        {% for image in imagens %}
-        <img src="{{image}}" alt="Poster do filme">
-        {% endfor %}    
-    </section>
-
+    {% block content %}
+    {% endblock %}
 
     <!-- Esse script serve para ao recarregar a pagina o servidor voltar para a rota inicial "/" -->
     <script>

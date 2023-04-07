@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% block content %}
+<section class="imagens">
+    {% for image in imagens %}
+    <img src="{{image}}" alt="Poster do filme">
+    {% endfor %}    
+</section>
+{% endblock %}

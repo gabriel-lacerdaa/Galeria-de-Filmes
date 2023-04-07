@@ -30,8 +30,8 @@ def filme(nome_do_filme):
         return render_template("index.html", texto_nao_encontrado="Filme não encontrado" )
     for filme in dicionario['results'][0:15]:    
         imagens.append('https://image.tmdb.org/t/p/w500' + filme["poster_path"])
-    return render_template("index.html", imagens=imagens)
+    return render_template("imagens.html", imagens=imagens)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="localhost", debug=True)
